@@ -1,0 +1,263 @@
+:root {
+  --primary-color: #8a2be2; /* Violet color */
+  --primary-hover: #7a1ce0;
+  --secondary-color: #9370db;
+  --background-light: #f0f0f0;
+  --background-dark: #2c2c54;
+  --text-light: #333;
+  --text-dark: #fff;
+  --error-color: #8a2be2;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.light {
+  background-color: var(--background-light);
+  color: var(--text-light);
+}
+
+.dark {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+h1, h2, h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+button {
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+  border-radius: 5px;
+  animation: bounceIn 0.5s ease-in-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+button:hover, button:focus {
+  background-color: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+.selected {
+  background-color: var(--secondary-color);
+}
+
+.error {
+  color: var(--error-color);
+  text-align: center;
+  margin-top: 10px;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: var(--background-light);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  transition: width 0.3s ease-in-out;
+}
+
+.progress-bar span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text-light);
+  font-weight: bold;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.answer-button {
+  background-color: #ddd;
+  color: var(--text-light);
+  border: none;
+  padding: 10px 20px;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+  border-radius: 5px;
+  animation: bounceIn 0.5s ease-in-out;
+}
+
+.answer-button:hover {
+  background-color: #ccc;
+  transform: scale(1.02);
+}
+
+.answer-button.selected {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.quiz-summary {
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.quiz-summary button {
+  margin: 10px;
+}
+
+.wrong-answers {
+  margin-top: 20px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.wrong-answer {
+  background-color: #ffcdd2;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.quiz-selection ul {
+  list-style-type: none;
+  padding: 0;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.quiz-selection li {
+  margin-bottom: 10px;
+}
+
+.quiz-selection button {
+  width: 100%;
+}
+
+.question {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@media (max-width: 600px) {
+  .App {
+    padding: 10px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
